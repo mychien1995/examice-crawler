@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        .question-container {
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        .question-content {
+            line-height: 30px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <script>
+		function showHideAnswers(elem)
+		{
+			const correctAnswerBlock = elem.nextElementSibling;
+			console.log(correctAnswerBlock);
+			if(correctAnswerBlock.classList.contains('show'))
+			{
+				correctAnswerBlock.classList.remove('show');
+				correctAnswerBlock.classList.add('hide');
+			}
+			else
+			{
+				correctAnswerBlock.classList.remove('hide');
+				correctAnswerBlock.classList.add('show');
+			}
+		}
+    </script>
+</head>
+<body>
+    <div class="question-container">
+        {{body}}
+    </div>
+</body>
+</html>
+
+

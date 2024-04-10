@@ -58,7 +58,7 @@ public class Crawler
         Console.ReadLine();
     }
 
-    public async Task<Guid> GetOrCreateExam(string examName)
+    private async Task<Guid> GetOrCreateExam(string examName)
     {
         var collection = _database.GetCollection<Exam>("exams");
         var exam = await (await collection.FindAsync(e => e.Name == examName)).FirstOrDefaultAsync();
@@ -68,7 +68,7 @@ public class Crawler
         return id;
     }
 
-    public  async Task Crawl(Guid examId, string cookieValue)
+    private async Task Crawl(Guid examId, string cookieValue)
     {
         var collection = _database.GetCollection<Question>("questions");
         const int batchSize = 100;
